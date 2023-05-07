@@ -1,3 +1,5 @@
+importScripts("/pwa/precache-manifest.39561856f192fce1bdc59618b4d3e428.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+
 // version 2
 //self.__precacheManifest = [].concat(self.__precacheManifest || []);
 //workbox.precaching.suppressWarnings();
@@ -9,3 +11,4 @@ self.addEventListener("message", msg=>{
         self.skipWaiting()
     }
 })
+

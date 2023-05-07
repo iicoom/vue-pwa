@@ -22,14 +22,11 @@ export default {
   created() {
     document.addEventListener('swUpdated', this.updateAvailable, { once: true })
 
-    console.log('navigator.serviceWorker', navigator.serviceWorker)
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      console.log('navigator.serviceWorker.addEventListener')
       // We'll also need to add 'refreshing' to our data originally set to false.
       if (this.refreshing) return
       this.refreshing = true
       // Here the actual reload of the page occurs
-      console.log('window.location.reload()')
       window.location.reload()
     })
   },
@@ -53,7 +50,6 @@ export default {
       // Make sure we only send a 'skip waiting' message if the SW is waiting
       if (!this.registration || !this.registration.waiting) return
       // Send message to SW to skip the waiting and activate the new SW
-      console.log(this.registration)
       this.registration.waiting.postMessage({ type: 'SKIP_WAITING' })
     }
   }
