@@ -5,8 +5,8 @@
 
 // install new service worker when ok, then reload page.
 self.addEventListener("message", msg=>{
-    console.log('self.addEventListener', msg.data.action=='SKIP_WAITING')
-    if (msg.data.action=='SKIP_WAITING'){
+    console.log('self.addEventListener', msg.data.type === 'SKIP_WAITING')
+    if (msg.data.type === 'SKIP_WAITING'){
         self.skipWaiting()
     }
 })
