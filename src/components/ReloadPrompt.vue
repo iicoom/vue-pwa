@@ -23,6 +23,7 @@ export default {
     document.addEventListener('swUpdated', this.updateAvailable, { once: true })
 
     navigator.serviceWorker.addEventListener('controllerchange', () => {
+      console.log('navigator.serviceWorker.addEventListener')
       // We'll also need to add 'refreshing' to our data originally set to false.
       if (this.refreshing) return
       this.refreshing = true
@@ -51,9 +52,8 @@ export default {
       // Make sure we only send a 'skip waiting' message if the SW is waiting
       if (!this.registration || !this.registration.waiting) return
       // Send message to SW to skip the waiting and activate the new SW
+      console.log(this.registration)
       this.registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-      
-      window.location.reload()
     }
   }
 }
