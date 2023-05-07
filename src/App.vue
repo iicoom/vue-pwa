@@ -7,12 +7,18 @@
         <h1>Install!!+</h1>
       </a>
     </div>
+    <ReloadPrompt/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import ReloadPrompt from './components/ReloadPrompt.vue';
+
 export default {
+  components: {
+    ReloadPrompt
+  },
   data() {
     return {
       installBtn: "none",
