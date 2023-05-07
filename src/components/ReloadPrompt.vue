@@ -22,6 +22,7 @@ export default {
   created() {
     document.addEventListener('swUpdated', this.updateAvailable, { once: true })
 
+    console.log('navigator.serviceWorker', navigator.serviceWorker)
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       console.log('navigator.serviceWorker.addEventListener')
       // We'll also need to add 'refreshing' to our data originally set to false.
